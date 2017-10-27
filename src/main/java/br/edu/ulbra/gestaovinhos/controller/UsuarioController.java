@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/usuario")
-public class VinhoController {
+public class UsuarioController {
 
     @GetMapping("/novo")
     @PostMapping("/novo")

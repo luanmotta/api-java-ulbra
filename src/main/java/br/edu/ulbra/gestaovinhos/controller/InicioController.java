@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/inicio")
-public class VinhoController {
+public class InicioController {
 
     @GetMapping("/vinho/{id}")
     public String vinhoId(){
