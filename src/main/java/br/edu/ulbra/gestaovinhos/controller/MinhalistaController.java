@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/minhalista")
-public class VinhoController {
+public class MinhalistaController {
 
     @RequestMapping("/")
     public String getLista(){
