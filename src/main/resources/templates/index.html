@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <title>home</title>
 </head>
 <body>
-
+	<h1>Gestão vinho</h1>
+	<div th:if="${error}">
+	    <div>
+	        <span th:text="${error}" /><br />
+	    </div>
+	</div>
+	<form class="form-inline" method="POST" th:action="@{/login}">
+	    <input type="text" class="form-control" placeholder="E-Mail"/>
+	    <input type="password" class="form-control" placeholder="Password"/>
+	    <button type="submit" class="btn btn-primary">login</button>
+	    
+	    <br /><br />
+	    <a href="/usuario/novo">Novo usuario</a>
+	</form>
 </body>
 </html>

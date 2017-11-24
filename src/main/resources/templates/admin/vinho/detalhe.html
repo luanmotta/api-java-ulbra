@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Detalhe do vinho</title>
+</head>
+<body>
+	<a href="/admin/inicio">Vinhos</a>
+	<a href="/admin/usuario/lista">Usuários</a>
+	
+	<form class="form-inline" method="POST" th:object="${vinho}" th:action="@{/admin/vinho/novo}">
+	    <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/><br />
+	    <input type="text" class="form-control" placeholder="Vinicola" th:field="*{vinicola}"/><br />
+	    <input type="text" class="form-control" placeholder="Nome imagem" th:field="*{nomeImagem}"/><br />
+	    <button type="submit" class="btn btn-primary">Alterar</button>
+	</form>
+	
+	<div th:each="avaliacao: ${avaliacoes}">
+	    <div class="inline">
+	      <h4 th:text="${avaliacao.user.name}" class="inline">vinho</h4> <h4 class="inline" th:text="${avaliacao.dateTime}">11/04</h4>
+    	  <p  th:text="${avaliacao.descricao}">descricao</p>
+	    </div>
+      	:) <span>1</span>
+		:( <span>2</span>
+		<a th:href="@{ /admin/vinho/{id}/excluir(id=${vinho.id}) }" class="btn btn-danger">Excluir</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Avaliar</title>
+    <style>
+		.inline {
+		  display: inline-block;
+		}
+		
+		.margin {
+		  margin-right: 10px;
+		}
+		
+		.links > a {
+		  display: block;
+		  width: 120px;
+		  margin: 0 0 1px 20px;
+		  border: 1px solid black;
+		  color: black;
+		  text-decoration: none;
+		}
+		
+		h4 {
+		  margin-bottom: 0px;
+		  padding-bottom: 0px;
+		}
+		
+		.actions {
+		  width: 130px;
+		  margin-left: 100px;
+		}
+		
+		.actions > button {
+		  margin: 5px 0;
+		}
+		
+		textarea {
+		  display: block;
+		}
+    </style>
+</head>
+<body>
+	<h1 class="inline">Gestão de vinhos</h1>
+  	<div class="inline links">
+    	<a href="/usuario/novo">Usuário da silva</a>
+  		<a href="/vinhos/minhalista">Minha lista</a>
+  	</div>
+	
+	<div th:object="${vinho}">
+    	<h4 th:text="${vinho.nome}"></h4>
+		<img src="" width="50px" height="50px" class="inline margin"/>
+    
+	    <div class="inline">
+		  	<h6 th:text="${vinho.vinicola}"></h6>
+	    </div>
+	    
+	    <div class="inline actions">
+	      	:) <span>1</span>
+			:( <span>2</span>
+	    </div>
+	</div>
+
+	<h4 class="inline">usuario</h4> <h4 class="inline">11/04</h4>
+	<form class="form-inline" method="POST" th:object="${avaliarInput}" th:action="@{ /vinhos/{id}/avaliar(id=${vinho.id}) }">
+	    <textarea  th:field="*{descricao}"></textarea>
+	    <div class="inline actions">
+	      :) <span>1</span>
+	      :( <span>2</span>
+	    </div>
+	    <button type="submit" class="btn btn-primary">enviar</button>
+	</form>
+</body>
+</html>

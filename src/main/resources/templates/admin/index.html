@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+	<h1>Login</h1>
+	<div th:if="${error}">
+	    <div>
+	        <span th:text="${error}" /><br />
+	    </div>
+	</div>
+	<form class="form-inline" method="POST" th:object="${user}" th:action="@{/admin/login}">
+	    <input type="text" class="form-control" placeholder="E-Mail" th:field="*{username}"/>
+	    <input type="password" class="form-control" placeholder="Password" th:field="*{password}"/>
+	    <button type="submit" class="btn btn-primary">login</button>
+	</form>
+</body>
+</html>

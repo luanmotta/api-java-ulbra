@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Novo vinho</title>
+</head>
+<body>
+	<a href="/admin/inicio">Vinhos</a>
+	<a href="/admin/usuario/lista">Usuários</a>
+	<div th:if="${error}">
+	    <div>
+	        <span th:text="${error}" /><br />
+	    </div>
+	</div>
+	<form class="form-inline" method="POST" th:object="${vinho}" th:action="@{/admin/vinho/novo}">
+	    <input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/>
+	    <input type="text" class="form-control" placeholder="Vinicola" th:field="*{vinicola}"/>
+	    <input type="text" class="form-control" placeholder="Nome imagem" th:field="*{nomeImagem}"/>
+	    <button type="submit" class="btn btn-primary">Adicionar</button>
+	</form>
+</body>
+</html>

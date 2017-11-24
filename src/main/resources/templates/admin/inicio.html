@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>admin inicio</title>
+    <style>
+	    .inline {
+		  display: inline-block;
+		}
+		
+		.margin {
+		  margin-right: 10px;
+		}
+		
+		.links > a {
+		  display: block;
+		  width: 120px;
+		  margin: 0 0 1px 20px;
+		  border: 1px solid black;
+		  color: black;
+		  text-decoration: none;
+		}
+		
+		h4 {
+		  margin-bottom: 0px;
+		  padding-bottom: 0px;
+		}
+    </style>
+</head>
+<body>
+	<a href="/admin/inicio">Vinhos</a>
+	<a href="/admin/usuario/lista">Usuários</a>
+	
+	<br /><br /><br />
+	<a href="/admin/vinho/novo">Adicionar vinho</a>
+	<div th:each="vinho: ${vinhos}">
+		<a th:href="@{ /admin/vinho/{id}(id=${vinho.id}) }" class="btn btn-danger">
+			<img src="" width="50px" height="50px" class="inline margin"/>
+		</a>
+	    <div class="inline">
+	      <h4 th:text="${vinho.nome}"></h4>
+	      <h4 th:text="${vinho.vinicola}"></h4>
+	    </div>
+      	:) <span>1</span>
+		:( <span>2</span>
+		<a th:href="@{ /admin/vinho/{id}/excluir(id=${vinho.id}) }" class="btn btn-danger">Excluir</a>
+	</div>
+</body>
+</html>

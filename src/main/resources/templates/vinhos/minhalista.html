@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+    	.inline {
+		  display: inline-block;
+		}
+		
+		.margin {
+		  margin-right: 10px;
+		}
+    </style>
+</head>
+<body>
+	<h1 class="inline">Meus vinhos</h1>
+	<a href="/demo/user/new">Usuário da silva</a>
+	<a href="/demo/user/new">Minha lista</a>
+	
+	<div th:each="avaliacao: ${avaliacoes}">
+		<img src="" width="50px" height="50px" class="inline margin"/>
+	    <div class="inline">
+	      <h4 class="inline" th:text="${avaliacao.vinho.nome}"></h4><h4 class="inline" th:text="${avaliacao.dateTime}"></h4>
+		  <h6 th:text="${avaliacao.vinho.vinicola}"></h6>
+		  <p  th:text="${avaliacao.descricao}"></p>
+	    </div>
+      	:) <span>0</span>
+		:( <span>0</span>
+	</div>
+</body>
+</html>

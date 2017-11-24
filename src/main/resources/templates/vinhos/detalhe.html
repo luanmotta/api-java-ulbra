@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Detalhe</title>
+    <style>
+		.inline {
+		  display: inline-block;
+		}
+		
+		.margin {
+		  margin-right: 10px;
+		}
+		
+		.links > a {
+		  display: block;
+		  width: 120px;
+		  margin: 0 0 1px 20px;
+		  border: 1px solid black;
+		  color: black;
+		  text-decoration: none;
+		}
+		
+		h4 {
+		  margin-bottom: 0px;
+		  padding-bottom: 0px;
+		}
+		
+		.actions {
+		  width: 130px;
+		  margin-left: 100px;
+		}
+		
+		.actions > button {
+		  margin: 5px 0;
+		}
+    </style>
+</head>
+<body>
+	<h1 class="inline">Gestão de vinhos</h1>
+  	<div class="inline links">
+    	<a href="/usuario/novo">Usuário da silva</a>
+  		<a href="/vinhos/minhalista">Minha lista</a>
+  	</div>
+	
+	<div th:object="${vinho}">
+    	<h4 th:text="${vinho.nome}"></h4>
+		<img src="" width="50px" height="50px" class="inline margin"/>
+    
+	    <div class="inline">
+		  	<h6 th:text="${vinho.vinicola}"></h6>
+	    </div>
+	    
+	    <div class="inline actions">
+	      	:) <span>1</span>
+			:( <span>2</span>
+      		<a th:href="@{ /vinhos/{id}/avaliar(id=${vinho.id}) }">Avaliar</a>
+	    </div>
+	</div>
+
+	<div th:each="avaliacao: ${vinho.avaliacoes}">
+	    <div class="inline">
+	      <h4 th:text="${avaliacao.user.name}" class="inline">vinho</h4> <h4 class="inline" th:text="${avaliacao.dateTime}">11/04</h4>
+    	  <p  th:text="${avaliacao.descricao}">descricao</p>
+	    </div>
+		:) <span>0</span>
+		:( <span>0</span>
+	</div>
+</body>
+</html>

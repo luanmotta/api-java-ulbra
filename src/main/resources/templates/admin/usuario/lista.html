@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>admin usuarios</title>
+    <style>
+	    .inline {
+		  display: inline-block;
+		}
+		
+		h4 {
+		  margin-bottom: 0px;
+		  padding-bottom: 0px;
+		}
+    </style>
+</head>
+<body>
+	<a href="/admin/inicio">Vinhos</a>
+	<a href="/admin/">Usuários</a>
+	
+	<br /><br /><br />
+	<a href="/admin/usuario/novo">Adicionar</a>
+	<div th:each="user: ${usuarios}">
+	    <div class="inline">
+	      <h4 th:text="${user.username}" class="inline"></h4>
+	      <h4 th:text="${user.name}" class="inline"></h4>
+	    </div>
+		<a th:href="@{ /admin/usuario/{id}/excluir(id=${user.id}) }" class="btn btn-danger">Excluir</a>
+	</div>
+</body>
+</html>
